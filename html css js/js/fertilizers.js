@@ -235,6 +235,19 @@ let fertilizers = [
     }
 ]
 
+// let result = fertilizers.map(fertilizer => {
+//     let tempQuantity = 0;
+//     let tempProducts = agricultural_products.filter(product => product.fertilizer_id == fertilizer.id);
+//     console.log(tempProducts);
+//     tempProducts.forEach(el => {
+//         tempQuantity += parseFloat(el.fertilizer_quantity)
+//     })
+//     return {
+//         [fertilizer.name]: tempQuantity
+//     }
+// })
+// console.log(JSON.stringify(result))
+
 let product_types =[
     {
         "id": 1,
@@ -402,9 +415,30 @@ let product_types =[
     }
 ] 
 
-for(let i = 0; i<agricultural_products.length; i++){
-    for(let j = 0; j<fertilizers.length;j++){
-        if(fertilizers[j].id === agricultural_products[i].fertilizer_id){
+// {
+//     rice:{
+//         urea : 10,
+//         other: 20,
+//     }
+//     corn: {
+//         urea:20,
+//         other:10,
+//     }
+// }
+
+let result1 = product_types.map(product_type => {
+    let tempQuantity = 0;
+    let tempProducts = agricultural_products.filter(product => product.agricultural_product_type_id == product_type.id);
+    let result3 = fertilizers.map(fertilizer => {
+        let tempProducts1 = tempProducts.filter(product => product.fertilizer_id == fertilizer.id);
+        tempProducts1.forEach(el => {
+            tempQuantity += parseFloat(el.fertilizer_quantity)
+        })
+        return {
+            [product_type.name] : {
+                [fertilizer.name]:tempQuantity
+            }
         }
-    }
-}
+    })
+})
+console.log(JSON.stringify(result1))

@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    /* border: 1px solid black; */
+
+}
+.child{
+    background-color: orange;
+    border: 1px solid black;
+    width: 320px;
+    height: 200px;
+}

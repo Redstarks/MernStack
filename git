@@ -1,0 +1,10 @@
+git init
+git remote add origin https://github.com/Redstarks/MernStack.git
+git remote -v
+git status
+git add .
+git add <individualFile>
+git commit -m "testing git"
+git branch
+git push origin master
+git checkout -b auth
